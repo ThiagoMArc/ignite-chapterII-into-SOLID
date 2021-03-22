@@ -1,0 +1,77 @@
+{
+    "openapi":"3.0.0",
+    "info" :{
+        "title":"Users Documentation",
+        "description":"This is an Api for Users Challenge",
+        "version":"1.0.0",
+        "contact":{
+            "email":"tf.arcanjo@gmail.com"
+        }
+    },
+    "paths":{
+        "/users":{
+            "post":{
+                "tags":["Users"],
+                "summary":"Create a User",
+                "description":"Create a new User",
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "type":"object",
+                                "properties":{
+                                    "name":{
+                                        "type":"string"
+                                    },
+                                    "email":{
+                                        "type":"string"
+                                    }
+                                },
+                                "example":{
+                                    "name":"User name Sample",
+                                    "description":"User Email sample"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "201":{
+                        "description":"Created"
+                    },
+                    "500":{
+                        "description":"User already exists"
+                    }
+                }
+            },
+            "get":{
+                "tags":["Users"],
+                "summary":"List all users",
+                "descriptions":"List all users",
+                "responses":{
+                    "200":{
+                        "description":"Sucess",
+                        "content":{
+                            "application/json":{
+                                "schema":{
+                                    "type":"array",
+                                    "items":{
+                                        "type":"object",
+                                        "properties":{
+                                            "name":{
+                                                "type":"string"
+                                            },
+                                            "email":{
+                                                "type":"string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    } 
+}
